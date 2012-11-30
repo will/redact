@@ -1,9 +1,5 @@
 #!/usr/bin/env ruby
 
-def filter(string)
-  string.gsub(/:[^\/]+@/,':<redacted>@')
-end
-
-while line = STDIN.gets
-  puts filter(line)
+while gets
+  puts $_.gsub(/:[^\/]+@/,':<redacted>@')
 end
