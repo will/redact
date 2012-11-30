@@ -1,0 +1,11 @@
+This file is an input file. There will be some secrets in here, and also
+some non secrets.  For example there hasn't been anything yet that
+should be redacted, but say I put in a link to
+http://will:<redacted>@bitfission.com then I'd hope that my redact tool
+would successfully redact out that password there. Also if my database
+url was in this document (but I'd never put in
+postgres://u123:<redacted>@site.com:5432/dbname in something public like this)
+I'd also hope that redact would redact out that password.
+
+There should also be test for arbitrary words in a .redactrc file but
+that'll be step two I suppose.
