@@ -9,3 +9,7 @@ I'd also hope that redact would redact out that password.
 
 There should also be test for arbitrary words in a .redactrc file but
 that'll be step two I suppose.
+
+Make sure that two things on the same line both get redacted:
+postgres://u123:<redacted>@site.com:5432/dbname postgres://u123:<redacted>@site.com:5432/dbname
+
