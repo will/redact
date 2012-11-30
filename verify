@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+abort 'usage ./verify <redact binary>' unless ARGV[0]
+
+diff= `bash -c "diff <(cat test/in | #{ARGV[0]}) test/out"`
+
+unless $?.success?
+  puts diff
+  exit 1
+end
+
