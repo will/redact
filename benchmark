@@ -1,10 +1,20 @@
 #!/usr/bin/env ruby
 
 abort 'usage ./benchmark <redact binary(s)>' unless ARGV[0]
+COUNT = 250
 
+puts "large files"
 ARGV.each do |program|
-  print "#{program}: "
+  print "  #{program}: "
   start = Time.now
-    system "for i in {1..500}; do cat test/in | #{program} > /dev/null; done"
+    system "for i in {1..#{COUNT}}; do cat test/in; done | #{program} > /dev/null"
+  puts Time.now - start
+end
+
+puts "many files"
+ARGV.each do |program|
+  print "  #{program}: "
+  start = Time.now
+    system "for i in {1..#{COUNT}}; do cat test/in | #{program} > /dev/null; done"
   puts Time.now - start
 end
