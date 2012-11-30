@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+abort 'usage ./benchmark <redact binary(s)>' unless ARGV[0]
+
+ARGV.each do |program|
+  print "#{program}: "
+  start = Time.now
+    system "for i in {1..500}; do cat test/in | #{program} > /dev/null; done"
+  puts Time.now - start
+end
